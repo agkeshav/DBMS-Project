@@ -1,5 +1,5 @@
 <?php
-  session_start();
+session_start();
 ?>
 
 <!DOCTYPE html>
@@ -19,100 +19,101 @@
 
 <body>
 
-<div class="page-container">
+  <div class="page-container">
 
-<div class="content-wrap">
+    <div class="content-wrap">
 
-<div class="user-label rect-circ">
-  <span class="rect-circ">ADMINISTRATOR</span>
-</div>
+      <div class="user-label rect-circ">
+        <span class="rect-circ">ADMINISTRATOR</span>
+      </div>
 
-<div class="btn-logout rect-circ" onClick="logout()">
-  <span class="rect-circ">LOGOUT</span>
-  <div class="rect-circ">✖</div>
-</div>
+      <div class="btn-logout rect-circ" onClick="logout()">
+        <span class="rect-circ">LOGOUT</span>
+        <div class="rect-circ">✖</div>
+      </div>
 
-<form method="post" action="<?php htmlspecialchars($_SERVER['PHP_SELF']) ?>" class="admin-buttons">
-  <a href="admin-dept.php" class="btn-admin rect-circ">
-    <span>EDIT HEADS</span>
-  </a>
-  
-  <input type="text" class="rect-round-sm admin-uid" name="userid" value="" placeholder="USER ID" maxlength="5">
+      <form method="post" action="<?php htmlspecialchars($_SERVER['PHP_SELF']) ?>" class="admin-buttons">
+        <a href="admin-dept.php" class="btn-admin rect-circ">
+          <span>EDIT HEADS</span>
+        </a>
 
-  <input type="submit" class="btn-admin rect-circ" value="EDIT USER"/>
+        <input type="text" class="rect-round-sm admin-uid" name="userid" value="" placeholder="USER ID" maxlength="5">
 
-  <span id="invalid-user"></span>
-</form>
+        <input type="submit" class="btn-admin rect-circ" value="EDIT USER" />
 
-<?php
-  $servname = "localhost";
-  $conn = new mysqli($servname, "root", "", "college_db");
-  
-  $utype = "inv";
-  $sql = "SELECT * FROM STUDENT";
-  $res = $conn->query($sql);
+        <span id="invalid-user"></span>
+      </form>
 
-  if ($res->num_rows > 0) {
-    while ($row = $res->fetch_assoc()) {
-      if ($row['StudentID'] == $_POST['userid']) {
-        $utype = "student";
-        break;
-      }
-    }
-  }
+      <?php
+      $servname = "localhost";
+      $conn = new mysqli($servname, "root", "", "college_db");
 
-  if ($utype == "inv") {
-    $sql = "SELECT * FROM INSTRUCTOR";
-    $res = $conn->query($sql);
+      $utype = "inv";
+      $sql = "SELECT * FROM STUDENT";
+      $res = $conn->query($sql);
 
-    if ($res->num_rows > 0) {
-      while ($row = $res->fetch_assoc()) {
-        if ($row['InstructorID'] == $_POST['userid']) {
-          $utype = "instructor";
-          break;
+      if ($res->num_rows > 0) {
+        while ($row = $res->fetch_assoc()) {
+          if (isset($_POST['userid'])) {
+            if ($row['StudentID'] == $_POST['userid']) {
+              $utype = "student";
+              break;
+            }
+          }
         }
       }
-    }  
-  }
 
-  if ($utype == "inv") {
-    echo '<script>
+      if ($utype == "inv") {
+        $sql = "SELECT * FROM INSTRUCTOR";
+        $res = $conn->query($sql);
+
+        if ($res->num_rows > 0) {
+          while ($row = $res->fetch_assoc()) {
+            if (isset($_POST['userid'])) {
+              if ($row['InstructorID'] == $_POST['userid']) {
+                $utype = "instructor";
+                break;
+              }
+            }
+          }
+        }
+      }
+
+      if ($utype == "inv") {
+        echo '<script>
       document.getElementById("invalid-user").innerHTML = "Invalid User ID";
     </script>';
-  }
-  
-  else {
-    echo
-    '<script>
+      } else {
+        echo
+          '<script>
       document.getElementById("invalid-user").innerHTML = "";
     </script>';
 
-    $_SESSION["phchanged"] = "false";
-    
-    $_SESSION["userid"] = $_POST["userid"];
-        
-    if ($utype == "student")
-      $_SESSION["usertype"] = "student";
-    
-    elseif  ($utype == "instructor")
-      $_SESSION["usertype"] = "instructor";
+        $_SESSION["phchanged"] = "false";
 
-    header("Location: admin-user.php");
-  }
-?>
+        $_SESSION["userid"] = $_POST["userid"];
 
-</div>
+        if ($utype == "student")
+          $_SESSION["usertype"] = "student";
+        elseif ($utype == "instructor")
+          $_SESSION["usertype"] = "instructor";
 
-</div>
+        header("Location: admin-user.php");
+      }
+      ?>
 
-<script>
-  function logout() {
-    document.cookie = "courseid" + '=;expires=Thu, 01 Jan 1970 00:00:01 GMT;';
-    document.cookie = "loggedin" + '=;expires=Thu, 01 Jan 1970 00:00:01 GMT;';
-    document.cookie = "logout=yes";
-    window.location.href = 'index.php';
-  }
-</script>
+    </div>
+
+  </div>
+
+  <script>
+    function logout() {
+      document.cookie = "courseid" + '=;expires=Thu, 01 Jan 1970 00:00:01 GMT;';
+      document.cookie = "loggedin" + '=;expires=Thu, 01 Jan 1970 00:00:01 GMT;';
+      document.cookie = "logout=yes";
+      window.location.href = 'index.php';
+    }
+  </script>
 
 </body>
 

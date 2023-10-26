@@ -90,6 +90,12 @@
     $total = $courses[$i][5] + $courses[$i][6];
     $grdpt = min(floor($total / 10) + 1, 10);
 
+      if (intval($courses[$i][3]) > 0) {
+    $attendancePercentage = round(intval($courses[$i][4]) / intval($courses[$i][3]) * 100);
+} else {
+    $attendancePercentage = 0; // Set to 0 if the denominator is 0 to avoid division by zero.
+}
+
     echo
     '<div class="rect-round-sm std-course-container">
       <div class="std-course-info">
@@ -119,10 +125,11 @@
             <span>Classes Attended: </span>
             <span>'.$courses[$i][4].'</span>
           </div>
-  
+
+
           <div class="std-course-attendance-data">
             <span>Attendance: </span>
-            <span>'.round(intval($courses[$i][4]) / intval($courses[$i][3]) * 100).'%</span>
+            <span>'.$attendancePercentage.'%</span>
           </div>
         </div>
   

@@ -57,8 +57,6 @@
     $username = $_REQUEST['username'];
     $password = $_REQUEST['password'];
     $password = md5($password);
-     echo
-      $password;
     
     
     $servname = "localhost";
