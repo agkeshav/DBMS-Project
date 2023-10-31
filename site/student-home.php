@@ -62,6 +62,7 @@ session_start();
               $name .= $row['LastName'];
             }
           }
+          echo "<p style='font-size: 24px;'><b style='font-size: 20px;'>Student</b></p>";
           echo "<p style='font-size: 24px;'>Hey, <b style='font-size: 28px;'>$name</b></p>";
           echo '<small style="font-size: 18px;"> ID :- ';
           echo $_SESSION["userid"];
