@@ -144,8 +144,8 @@ session_start();
       echo '<main style="display: flex; justify-content: space-around;">
     <div class="subjects">
       <div class="eg" style="width: 400px; display: flex; flex-direction: column; justify-content: center; align-items: center;">
-        <h2>' . $course[0] . '</h2>
-        <h2>' . $course[1] . '</h2>
+        <h2 >' . $course[0] . '</h2>
+        <h2 style="margin-bottom:20px">' . $course[1] . '</h2>
         <main>
             <div class="subjects" style="display: flex; flex-direction:row; ">
               <div class="eg" style="margin-top:-17px">
@@ -204,7 +204,7 @@ session_start();
     <div class="subjects" style="margin: 5px;">
       <div class="eg" style="width: 490px; display: flex; flex-direction: column; justify-content: center; align-items: center;">
         <h2>' . $students[$i][0] . '</h2>
-        <h2>' . $students[$i][1] . '</h2>
+        <h2 style="margin-bottom:20px">' . $students[$i][1] . '</h2>
         <main>
             <div class="subjects" style="display: flex; flex-direction:row; ">
               <div class="eg" style="margin-top:-17px">
