@@ -11,13 +11,47 @@ session_start();
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
   <title>Instructor</title>
 
-  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="student-home.css">
   <link rel="stylesheet" href="//use.fontawesome.com/releases/v5.0.7/css/all.css">
 
   <link href="https://fonts.googleapis.com/css?family=Be+Vietnam:400,600,800&display=swap" rel="stylesheet">
+  <style>
+    .float {
+
+      width: 30px;
+      height: 30px;
+      background-color: #0C9;
+      color: #FFF;
+      border-radius: 50px;
+      text-align: center;
+    }
+
+    .my-float {
+      margin-top: 10px;
+    }
+
+    input[type="submit"] {
+      background-color: #333;
+      /* Dark background color */
+      color: #fff;
+      /* White text color */
+      border: none;
+      padding: 10px 20px;
+      border-radius: 5px;
+      margin-top: 20px;
+      margin-left: 447px;
+      margin-bottom: 20px;
+    }
+
+    /* Hover effect */
+    input[type="submit"]:hover {
+      background-color: #555;
+      /* Darker background color on hover */
+    }
+  </style>
 </head>
 
-<body>
+<body class="dark-theme">
 
   <?php
   $servname = "localhost";
@@ -29,19 +63,20 @@ session_start();
   if (!isset($_COOKIE["courseid"]))
     echo "Enable Cookies";
   ?>
+  <header>
+    <div class="navbar">
+      <div onClick="logout()" style="margin-top: 20px;">
+        <span class="material-icons-sharp" onClick="logout()"></span>
+        <h3>Logout</h3>
+      </div>
 
-  <div class="page-container">
-
-    <div class="user-label rect-circ">
-      <span class="rect-circ">INSTRUCTOR</span>
     </div>
+  </header>
 
-    <div class="btn-logout rect-circ" onClick="logout()">
-      <span class="rect-circ">LOGOUT</span>
-      <div class="rect-circ">✖</div>
-    </div>
+  <div class="container" style="display: flex; flex-direction: column;  justify-content: center; align-items: center;">
+    <p style='font-size: 24px; margin-top: 10px;'><b style='font-size: 25px;'>Instructor</b></p>
 
-    <div class="dept-label">
+    <div>
       <?php
       $sql = "SELECT DEPARTMENT.DeptName
             FROM INSTRUCTOR, DEPARTMENT
@@ -51,14 +86,16 @@ session_start();
 
       if ($res->num_rows > 0) {
         while ($row = $res->fetch_assoc()) {
-          echo "<span>" . $row['DeptName'] . "</span>";
+          echo "<b style='font-size: 18px;'>" . $row['DeptName'] . "</b>";
         }
       }
       ?>
     </div>
 
-    <form method="post" action="<?php htmlspecialchars($_SERVER['PHP_SELF']) ?>">
-      <input type="submit" value="SUBMIT" class="btn-submit rect-circ" />
+    <form method="post" action="<?php htmlspecialchars($_SERVER['PHP_SELF']) ?>" style="margin-top:-36px">
+
+
+
 
       <?php
       if (isset($_POST["clsInp"])) {
@@ -104,37 +141,39 @@ session_start();
           $course = array($row['CourseID'], $row['CourseName'], $row['ClassesTaken']);
         }
       }
-
-      echo
-        '<div class="ins-course-edit-container">
-      <div class="rect-round-sm std-course-cred">
-        <div class="rect-round-sm std-course-id">
-          <span>' . $course[0] . '</span>
-        </div>
-
-        <div class="std-course-name">
-          <span>' . $course[1] . '</span>
-        </div>
+      echo '<main style="display: flex; justify-content: space-around;">
+    <div class="subjects">
+      <div class="eg" style="width: 400px; display: flex; flex-direction: column; justify-content: center; align-items: center;">
+        <h2>' . $course[0] . '</h2>
+        <h2>' . $course[1] . '</h2>
+        <main>
+            <div class="subjects" style="display: flex; flex-direction:row; ">
+              <div class="eg" style="margin-top:-17px">
+                <h2>Classes</h2>
+                <div style="display:flex;flex-direction:row; justify-content:space-around">
+                <a href="#" class="float" onClick="decrClass()">
+<i class="fa fa-minus my-float" ></i>
+</a><h2 id="numClass">' . $course[2] . '</h2><input id="clsInp" type="hidden" name="clsInp" value="' . $course[2] . '"/><a href="#" class="float">
+<i class="fa fa-plus my-float" onClick="incrClass()"></i>
+</a>
+                </div>
+              </div>
+            </div>
+          </main>
       </div>
+    </div>
+  </main>
+    ';
 
-      <div class="rect-round-sm" onClick="decrClass()"><span>-</span></div>
-
-      <div class="rect-round-sm">
-        <span><strong><span id="numClass">' . $course[2] . '</span></strong> classes</span>
-        <input id="clsInp" type="hidden" name="clsInp" value="' . $course[2] . '"/>
-      </div>
-
-      <div class="rect-round-sm" onClick="incrClass()"><span>+</span></div>
-    </div>';
       ?>
 
       <div class="line"></div>
 
-      <div class="ins-course-edit-label">
+      <!-- <div class="ins-course-edit-label">
         <span>Internal</span>
         <span>Paper</span>
         <span>Classes</span>
-      </div>
+      </div> -->
 
       <?php
       $sql = "SELECT *
@@ -159,33 +198,51 @@ session_start();
           );
         }
       }
-
+      echo '<main style="display: grid; grid-template-columns: auto auto;">';
       for ($i = 0; $i < COUNT($students); $i++) {
-        echo
-          '<div class="ins-course-edit-course">
-        <div class="rect-round-sm std-course-cred">
-          <div class="rect-round-sm std-course-id">
-            <span>' . $students[$i][0] . '</span>
-          </div>
-          <div class="std-course-name">
-            <span>' . $students[$i][1] . '</span>
-          </div>
-        </div>
+        echo '
+    <div class="subjects" style="margin: 5px;">
+      <div class="eg" style="width: 490px; display: flex; flex-direction: column; justify-content: center; align-items: center;">
+        <h2>' . $students[$i][0] . '</h2>
+        <h2>' . $students[$i][1] . '</h2>
+        <main>
+            <div class="subjects" style="display: flex; flex-direction:row; ">
+              <div class="eg" style="margin-top:-17px">
+                <h2>Classes</h2>
+                <div style="display:flex;flex-direction:row; justify-content:space-around">
+                  <input type="text" name="cls' . $i . '" value="' . $students[$i][2] . '" maxlength="2" style="background-color:#202528; width:60px;font-size:30px;color:#fff;border-radius:10px;padding:7px" />
 
-        <input type="number" class="rect-round-sm"
-          name="cls' . $i . '" value="' . $students[$i][2] . '" maxlength="2"/>
+                </div>
+              </div>
+              <div class="eg" style="margin-top:-17px">
+                <h3>Paper Marks</h3>
+                <div style="display:flex;flex-direction:row; justify-content:space-around">
+                <input type="text" name="pap' . $i . '" value="' . $students[$i][3] . '" maxlength="2" style="background-color:#202528; width:60px;font-size:30px;color:#fff;border-radius:10px;padding:7px;" />
 
-        <input type="text" class="rect-round-sm"
-          name="pap' . $i . '" value="' . $students[$i][3] . '" maxlength="2"/>
 
-        <input type="text" class="rect-round-sm"
-          name="int' . $i . '" value="' . $students[$i][4] . '" maxlength="2"/>
-      </div>';
+                </div>
+              </div>
+              <div class="eg" style="margin-top:-17px">
+                <h3>Internal Marks</h3>
+                <div style="display:flex;flex-direction:row; justify-content:space-around">
+ <input type="text" name="int' . $i . '" value="' . $students[$i][4] . '" maxlength="2" style="background-color:#202528; width:60px;font-size:30px;color:#fff;border-radius:10px;padding:7px" />
+                </div>
+              </div>
+            </div>
+          </main>
+      </div>
+    </div>
+  
+    ';
       }
+      echo '</main>';
       ?>
-    </form>
+      <input type="submit" value="SUBMIT" />
 
+    </form>
   </div>
+
+
 
   <script>
     function logout() {

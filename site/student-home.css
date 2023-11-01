@@ -199,7 +199,7 @@ header .theme-toggler span.active {
 /* Home Section  */
 main {
   position: relative;
-  margin-top: 1.4rem;
+  /* margin-top: 1.4rem; */
 }
 /* main .subjects {
   display: grid;
