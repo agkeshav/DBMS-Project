@@ -39,7 +39,6 @@ session_start();
       padding: 10px 20px;
       border-radius: 5px;
       margin-top: 20px;
-      margin-left: 447px;
       margin-bottom: 20px;
     }
 
@@ -237,7 +236,11 @@ session_start();
       }
       echo '</main>';
       ?>
-      <input type="submit" value="SUBMIT" />
+      <div style="display: flex;             
+          justify-content: center;   
+          align-items: center; ">
+        <input type="submit" value="SUBMIT" />
+      </div>
 
     </form>
   </div>
