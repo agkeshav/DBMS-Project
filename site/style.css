@@ -2,7 +2,7 @@
     common
    =================== */
 body {
-  font-family: 'Be Vietnam', sans-serif;
+  font-family: "Be Vietnam", sans-serif;
   width: 100%;
   height: 100%;
   position: relative;
@@ -90,10 +90,9 @@ footer span {
   font-size: 0.8rem;
 }
 
-input[type=submit] {
+input[type="submit"] {
   border: none;
 }
-
 
 /* ===================
     login-page
@@ -148,19 +147,19 @@ input[type=submit] {
   border-radius: 6px;
 }
 
-.box-field input[type=text],
-.box-field input[type=password] {
+.box-field input[type="text"],
+.box-field input[type="password"] {
   width: 228px;
   height: 40px;
   border: 0;
   padding: 0 0 0 48px;
   font-size: 14px;
   border-radius: 8px;
-  font-family: 'Be Vietnam', sans-serif;
+  font-family: "Be Vietnam", sans-serif;
   font-weight: 700;
 }
 
-.box-form input[type=submit] {
+.box-form input[type="submit"] {
   width: 280px;
   height: 40px;
   border: 0;
@@ -171,7 +170,7 @@ input[type=submit] {
   background: #666;
   color: #fff;
   font-size: 1rem;
-  font-family: 'Be Vietnam', sans-serif;
+  font-family: "Be Vietnam", sans-serif;
   font-weight: 800;
 }
 
@@ -181,10 +180,8 @@ input[type=submit] {
 
 #invalid-login {
   display: block;
-  color: red;
   text-align: center;
 }
-
 
 /* ===================
     login-page
@@ -273,7 +270,6 @@ input[type=submit] {
 .btn-reset:active {
   background: #666;
 }
-
 
 /* ===================
     student-home
@@ -368,7 +364,6 @@ input[type=submit] {
   color: #060;
 }
 
-
 /* ===================
     instructor-home
    =================== */
@@ -420,7 +415,6 @@ input[type=submit] {
 .ins-course-container .std-course-cred:active {
   box-shadow: 0 0 2px 2px #888;
 }
-
 
 /* ===================
     instructor-data
@@ -534,7 +528,6 @@ input[type=submit] {
   font-size: medium;
 }
 
-
 /* ===================
     course-info
    =================== */
@@ -585,7 +578,6 @@ input[type=submit] {
   padding: 0 1rem;
   font-size: medium;
 }
-
 
 /* ===================
     admin-home
@@ -643,10 +635,8 @@ input[type=submit] {
 #invalid-user {
   display: block;
   margin-top: 0.5em;
-  color: red;
   text-align: center;
 }
-
 
 /* ===================
     admin-dept
@@ -683,7 +673,6 @@ input[type=submit] {
   font-size: 1rem;
 }
 
-
 /* ===================
     admin-user
    =================== */
@@ -709,7 +698,6 @@ input[type=submit] {
 .user-person div {
   text-align: center;
   font-weight: 600;
-  color: red;
   margin: 1em 0 2em 0;
 }
 
@@ -727,7 +715,8 @@ input[type=submit] {
   padding-left: 0.5rem;
 }
 
-.label-phone, .label-dept {
+.label-phone,
+.label-dept {
   margin: 1.5em 0 1em 0;
   font-weight: 600;
 }
