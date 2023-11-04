@@ -194,7 +194,7 @@ if ($conn->connect_error)
                 }
             }
 
-
+            
             echo '<main style="display: grid; grid-template-columns: auto auto auto; margin-top:700px">';
             for ($i = 0; $i < COUNT($depts); $i++) {
 

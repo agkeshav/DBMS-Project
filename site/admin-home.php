@@ -194,7 +194,11 @@ if ($utype == "inv") {
             <div style="display: flex;             
           justify-content: center;   
           align-items: center; justify-content: space-around; margin: 5px; ">
-              <input type="submit" value="CREATE" />
+              <?php
+
+              echo '<input type="submit" value="CREATE" onclick=sendcreate("student") />';
+
+              ?>
             </div>
             <div style="display: flex;             
           justify-content: center;   
@@ -222,7 +226,11 @@ if ($utype == "inv") {
             <div style="display: flex;             
           justify-content: center;   
           align-items: center; justify-content: space-around; margin: 5px; ">
-              <input type="submit" value="CREATE" />
+              <?php
+
+              echo '<input type="submit" value="CREATE" onclick=sendcreate("instructor") />';
+
+              ?>
             </div>
             <div style="display: flex;             
           justify-content: center;   
@@ -250,7 +258,11 @@ if ($utype == "inv") {
             <div style="display: flex;             
           justify-content: center;   
           align-items: center; justify-content: space-around; margin: 5px; ">
-              <input type="submit" value="CREATE" />
+              <?php
+
+              echo '<input type="submit" value="CREATE" onclick=sendcreate("department") />';
+
+              ?>
             </div>
             <div style="display: flex;             
           justify-content: center;   
@@ -338,6 +350,12 @@ if ($utype == "inv") {
       // document.getElementById("toggle").style.display = "block";
       // document.getElementById("toggle1").style.display = "block";
       window.location.href = "admin-dept-edit.php";
+    }
+    function sendcreate(str) {
+      document.cookie = "name=" + str;
+      // document.getElementById("toggle").style.display = "block";
+      // document.getElementById("toggle1").style.display = "block";
+      window.location.href = "admin-create.php";
     }
   </script>
 

@@ -398,7 +398,7 @@ session_start();
     </div>';
 
 
-        $sql = "SELECT DeptNo,DeptName FROM DEPARTMENT";
+        $sql = "SELECT DeptNo,DeptName FROM DEPARTMENT ORDER BY DeptNo";
         $res = $conn->query($sql);
         $departments = array();
         $map = array();

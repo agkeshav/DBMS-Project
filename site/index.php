@@ -4,7 +4,7 @@ session_start();
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
   $username = $_REQUEST['username'];
   $password = $_REQUEST['password'];
-  $password = md5($password);
+  $password = md5($password); 
 
   $servname = "localhost";
   $conn = new mysqli($servname, "root", "", "college_db");
