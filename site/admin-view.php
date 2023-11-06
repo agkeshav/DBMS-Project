@@ -449,12 +449,14 @@ session_start();
                 <div class="custom-dropdown">
                 <h2 style="margin-left:20px"> Courses </h2>
                     <div class="dropdown-content">';
-            foreach ($map[$departments[$i][1]] as $value) {
+            if (isset($map[$departments[$i][1]]) && is_array($map[$departments[$i][1]])) {
+                foreach ($map[$departments[$i][1]] as $value) {
 
-                echo '<div class="dropdown-item">' . $value . ":-" . $map1[$value] . '</div>';
+                    echo '<div class="dropdown-item">' . $value . ":-" . $map1[$value] . '</div>';
 
 
 
+                }
             }
             echo '</div>';
             echo '
