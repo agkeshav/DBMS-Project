@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Examination</title>
+    <link rel="stylesheet" href="student-home.css" />
+    <style>
+      body {
+        overflow: hidden;
+        margin: 0;
+        padding: 0;
+        font-family: Arial, sans-serif;
+      }
+      header {
+        position: relative;
+      }
+      .exam {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-direction: column;
+        height: 80vh;
+        width: 80%;
+        margin: auto;
+        border: 1px solid #ccc;
+        padding: 20px;
+        border-radius: 10px;
+        margin-top: 50px;
+      }
+      .exam table {
+        width: 100%;
+        border-collapse: collapse;
+      }
+      .exam table th,
+      .exam table td {
+        border: 1px solid #ccc;
+        padding: 10px;
+      }
+      .exam table th {
+        background-color: #f2f2f2;
+      }
+      .exam table thead tr th {
+        background-color: #181a1e;
+        font-size: 15px;
+      }
+      .exam table tr td {
+        background-color: #181a1e;
+        font-size: 15px;
+      }
+    </style>
+  </head>
+  <body class="dark-theme">
+    <main>
+      <div class="exam timetable">
+        <h2 style="margin-bottom: 10px">Exam Available</h2>
+        <table>
+          <thead>
+            <tr>
+              <th>Date</th>
+              <th>Time</th>
+              <th>Subject</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>13 Nov 2023</td>
+              <td>09:00-10:00 AM</td>
+              <td>Avionics</td>
+            </tr>
+            <tr>
+              <td>13 Nov 2023</td>
+              <td>03:00-04:00 PM</td>
+              <td>Aero-acoustics</td>
+            </tr>
+            <tr>
+              <td>14 Nov 2023</td>
+              <td>09:00-10:00 AM</td>
+              <td>Statics and Dynamics</td>
+            </tr>
+            <tr>
+              <td>14 Nov 2023</td>
+              <td>03:00-04:00 PM</td>
+              <td>Construction Engineering</td>
+            </tr>
+            <tr>
+              <td>15 Nov 2023</td>
+              <td>09:00-10:00 AM</td>
+              <td>Material Science</td>
+            </tr>
+            <tr>
+              <td>15 Nov 2023</td>
+              <td>03:00-04:00 PM</td>
+              <td>Data Structures and Algorithms</td>
+            </tr>
+            <tr>
+              <td>16 Nov 2023</td>
+              <td>09:00-10:00 AM</td>
+              <td>Digital Electronics</td>
+            </tr>
+            <tr>
+              <td>16 Nov 2023</td>
+              <td>03:00-04:00 PM</td>
+              <td>Power Systems</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </main>
+  </body>
+</html>

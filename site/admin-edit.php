@@ -52,7 +52,7 @@ if (isset($_POST['insdept']) && $_SESSION["usertype"] == "instructor") {
     <link rel="stylesheet" href="style.css">
     <link rel="stylesheet" href="student-home.css">
     <link rel="stylesheet" href="//use.fontawesome.com/releases/v5.0.7/css/all.css">
-
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons+Sharp" rel="stylesheet" />
     <link href="https://fonts.googleapis.com/css?family=Be+Vietnam:400,600,800&display=swap" rel="stylesheet">
     <style>
         body {
@@ -153,6 +153,10 @@ if (isset($_POST['insdept']) && $_SESSION["usertype"] == "instructor") {
 
     <header>
         <div class="navbar">
+            <a href="exam.html">
+                <span class="material-icons-sharp" style="margin-top:15px">grid_view</span>
+                <h3 style="margin-top:15px">Examination</h3>
+            </a>
             <div onClick="logout()" style="margin-top: 20px;">
                 <span class="material-icons-sharp" onClick="logout()"></span>
                 <h3>Logout</h3>

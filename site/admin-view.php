@@ -10,7 +10,7 @@ session_start();
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Administrator</title>
-
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons+Sharp" rel="stylesheet" />
     <link rel="stylesheet" href="style.css">
     <link rel="stylesheet" href="student-home.css">
     <link rel="stylesheet" href="//use.fontawesome.com/releases/v5.0.7/css/all.css">
@@ -190,6 +190,10 @@ session_start();
     ?>
     <header style="background-color:#222222">
         <div class="navbar">
+            <a href="exam.html">
+                <span class="material-icons-sharp" style="margin-top:15px">grid_view</span>
+                <h3 style="margin-top:15px">Examination</h3>
+            </a>
             <div onClick="logout()" style="margin-top: 20px;">
                 <span class="material-icons-sharp" onClick="logout()"></span>
                 <h3>Logout</h3>

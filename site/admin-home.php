@@ -66,11 +66,11 @@ if ($utype == "inv") {
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
   <title>Administrator</title>
-
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons+Sharp" rel="stylesheet" />
   <link rel="stylesheet" href="style.css">
   <link rel="stylesheet" href="student-home.css">
   <link rel="stylesheet" href="//use.fontawesome.com/releases/v5.0.7/css/all.css">
-
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons+Sharp" rel="stylesheet" />
   <link href="https://fonts.googleapis.com/css?family=Be+Vietnam:400,600,800&display=swap" rel="stylesheet">
   <style>
     body {
@@ -170,6 +170,10 @@ if ($utype == "inv") {
 
   <header style="background-color:#222222">
     <div class="navbar">
+      <a href="exam.html">
+        <span class="material-icons-sharp" style="margin-top:15px">grid_view</span>
+        <h3 style="margin-top:15px">Examination</h3>
+      </a>
       <div onClick="logout()" style="margin-top: 20px;">
         <span class="material-icons-sharp" onClick="logout()"></span>
         <h3>Logout</h3>
@@ -189,7 +193,8 @@ if ($utype == "inv") {
     <main>
       <div class="subjects">
         <div class="eg" style="align-items:center;display:flex;flex-direction:column; justify-content:center">
-          <h2>STUDENT</h2>
+          <h2 style="margin-bottom:5px">STUDENT</h2>
+          <img src="images.png" alt="Girl in a jacket"></img>
           <div style="display:flex;flex-direction:row">
             <div style="display: flex;             
           justify-content: center;   
@@ -221,7 +226,8 @@ if ($utype == "inv") {
     <main>
       <div class="subjects">
         <div class="eg" style="align-items:center;display:flex;flex-direction:column; justify-content:center">
-          <h2>INSTRUCTOR</h2>
+          <h2 style="margin-bottom:5px">INSTRUCTOR</h2>
+          <img src="faculty.jpg" alt="Girl in a jacket"></img>
           <div style="display:flex;flex-direction:row">
             <div style="display: flex;             
           justify-content: center;   
@@ -253,7 +259,8 @@ if ($utype == "inv") {
     <main>
       <div class="subjects">
         <div class="eg" style="align-items:center;display:flex;flex-direction:column; justify-content:center">
-          <h2>DEPARTMENT</h2>
+          <h2 style="margin-bottom:5px">DEPARTMENT</h2>
+          <img src="departmentjpeg.jpeg" alt="Girl in a jacket"></img>
           <div style="display:flex;flex-direction:row">
             <div style="display: flex;             
           justify-content: center;   
