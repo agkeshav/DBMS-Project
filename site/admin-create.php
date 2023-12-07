@@ -420,6 +420,10 @@ session_start();
             $sql = "INSERT INTO HEAD (DeptNo, Head) VALUES ($ldid+1,$insid)";
             $res = $conn->query($sql);
 
+            $sql = "UPDATE INSTRUCTOR SET DeptNo = '";
+            $sql .= $ldid + 1 . "' WHERE InstructorID = '" . $_POST['insid'] . "'";
+            $res = $conn->query($sql);
+
             if ($res == TRUE) {
                 echo 'Department Successfully Inserted';
             }

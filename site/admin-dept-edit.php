@@ -152,6 +152,10 @@ if ($conn->connect_error)
                     $sql = "UPDATE HEAD SET Head = '";
                     $sql .= $_POST['insid' . $i] . "' WHERE DeptNo = '" . $_POST['did' . $i] . "'";
                     $res = $conn->query($sql);
+
+                    $sql = "UPDATE INSTRUCTOR SET DeptNo = '";
+                    $sql .= $_POST['did' . $i] . "' WHERE InstructorID = '" . $_POST['insid' . $i] . "'";
+                    $res = $conn->query($sql);
                     // echo $sql;
                 } else {
                     // Handle the case where the required POST data is missing or undefined
